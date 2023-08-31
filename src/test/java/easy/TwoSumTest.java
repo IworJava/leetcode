@@ -18,7 +18,7 @@ class TwoSumTest {
     void shouldReturnExistedResult() {
         int[] expected = {1, 2};
 
-        int[] actual = new TwoSum().twoSum(arr, existedTarget);
+        int[] actual = new TwoSum().twoSum1(arr, existedTarget);
 
         assertNotNull(actual);
         assertEquals(Arrays.toString(expected), Arrays.toString(actual));
@@ -28,7 +28,7 @@ class TwoSumTest {
     void shouldReturnEmptyResult() {
         int[] expected = {};
 
-        int[] actual = new TwoSum().twoSum(arr, absentTarget);
+        int[] actual = new TwoSum().twoSum1(arr, absentTarget);
 
         assertNotNull(actual);
         assertEquals(Arrays.toString(expected), Arrays.toString(actual));
@@ -38,7 +38,7 @@ class TwoSumTest {
     void shouldReturnEmptyResultWhenArrayIsEmpty() {
         int[] expected = {};
 
-        int[] actual = new TwoSum().twoSum(emptyArr, absentTarget);
+        int[] actual = new TwoSum().twoSum1(emptyArr, absentTarget);
 
         assertNotNull(actual);
         assertEquals(Arrays.toString(expected), Arrays.toString(actual));
