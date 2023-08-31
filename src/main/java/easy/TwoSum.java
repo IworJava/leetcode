@@ -1,5 +1,6 @@
 package easy;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class TwoSum {
@@ -26,6 +27,19 @@ public class TwoSum {
                 }
             } else {
                 set.add(nums[i]);
+            }
+        }
+        return new int[0];
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
+        var map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            int couple = target - nums[i];
+            if (map.containsKey(couple)) {
+                return new int[]{map.get(couple), i};
+            } else {
+                map.put(nums[i], i);
             }
         }
         return new int[0];

@@ -1,10 +1,9 @@
 package easy;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class TwoSumTest {
@@ -18,29 +17,53 @@ class TwoSumTest {
     void shouldReturnExistedResult() {
         int[] expected = {1, 2};
 
-        int[] actual = new TwoSum().twoSum1(arr, existedTarget);
+        int[] actual = new TwoSum().twoSum(arr, existedTarget);
+        int[] actual1 = new TwoSum().twoSum1(arr, existedTarget);
+        int[] actual2 = new TwoSum().twoSum2(arr, existedTarget);
 
-        assertNotNull(actual);
-        assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+        Assertions.assertAll(
+                () -> assertNotNull(actual),
+                () -> assertNotNull(actual1),
+                () -> assertNotNull(actual2),
+                () -> assertArrayEquals(expected, actual),
+                () -> assertArrayEquals(expected, actual1),
+                () -> assertArrayEquals(expected, actual2)
+        );
     }
 
     @Test
     void shouldReturnEmptyResult() {
         int[] expected = {};
 
-        int[] actual = new TwoSum().twoSum1(arr, absentTarget);
+        int[] actual = new TwoSum().twoSum(arr, absentTarget);
+        int[] actual1 = new TwoSum().twoSum1(arr, absentTarget);
+        int[] actual2 = new TwoSum().twoSum2(arr, absentTarget);
 
-        assertNotNull(actual);
-        assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+        Assertions.assertAll(
+                () -> assertNotNull(actual),
+                () -> assertNotNull(actual1),
+                () -> assertNotNull(actual2),
+                () -> assertArrayEquals(expected, actual),
+                () -> assertArrayEquals(expected, actual1),
+                () -> assertArrayEquals(expected, actual2)
+        );
     }
 
     @Test
     void shouldReturnEmptyResultWhenArrayIsEmpty() {
         int[] expected = {};
 
-        int[] actual = new TwoSum().twoSum1(emptyArr, absentTarget);
+        int[] actual = new TwoSum().twoSum(emptyArr, absentTarget);
+        int[] actual1 = new TwoSum().twoSum1(emptyArr, absentTarget);
+        int[] actual2 = new TwoSum().twoSum2(emptyArr, absentTarget);
 
-        assertNotNull(actual);
-        assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+        Assertions.assertAll(
+                () -> assertNotNull(actual),
+                () -> assertNotNull(actual1),
+                () -> assertNotNull(actual2),
+                () -> assertArrayEquals(expected, actual),
+                () -> assertArrayEquals(expected, actual1),
+                () -> assertArrayEquals(expected, actual2)
+        );
     }
 }
