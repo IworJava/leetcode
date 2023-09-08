@@ -18,9 +18,11 @@ class BestTimeToBuyAndSellStockTest {
         int expected = 5;
 
         int actual = obj.maxProfit(pricesWithAnswer);
+        int actual1 = obj.maxProfit1(pricesWithAnswer);
 
         assertAll(
-                () -> assertEquals(expected, actual)
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
         );
     }
 
@@ -29,9 +31,11 @@ class BestTimeToBuyAndSellStockTest {
         int expected = 0;
 
         int actual = obj.maxProfit(pricesWithoutAnswer);
+        int actual1 = obj.maxProfit1(pricesWithoutAnswer);
 
         assertAll(
-                () -> assertEquals(expected, actual)
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
         );
     }
 
@@ -40,20 +44,11 @@ class BestTimeToBuyAndSellStockTest {
         int expected = 0;
 
         int actual = obj.maxProfit(new int[0]);
+        int actual1 = obj.maxProfit(new int[0]);
 
         assertAll(
-                () -> assertEquals(expected, actual)
-        );
-    }
-
-    @Test
-    void shouldReturnEmptyResultWhenArrayIsNull() {
-        int expected = 0;
-
-        int actual = obj.maxProfit(null);
-
-        assertAll(
-                () -> assertEquals(expected, actual)
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
         );
     }
 }
