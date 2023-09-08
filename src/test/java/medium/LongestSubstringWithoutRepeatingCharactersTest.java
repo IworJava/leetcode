@@ -27,12 +27,15 @@ class LongestSubstringWithoutRepeatingCharactersTest {
 
         List<Integer> actual = new ArrayList<>();
         List<Integer> actual1 = new ArrayList<>();
+        List<Integer> actual2 = new ArrayList<>();
         map.forEach((k, v) -> actual.add(obj.lengthOfLongestSubstring(k)));
         map.forEach((k, v) -> actual1.add(obj.lengthOfLongestSubstring1(k)));
+        map.forEach((k, v) -> actual2.add(obj.lengthOfLongestSubstring2(k)));
 
         Assertions.assertAll(
                 () -> assertArrayEquals(expected, actual.toArray()),
-                () -> assertArrayEquals(expected, actual1.toArray())
+                () -> assertArrayEquals(expected, actual1.toArray()),
+                () -> assertArrayEquals(expected, actual2.toArray())
         );
     }
 
@@ -42,10 +45,12 @@ class LongestSubstringWithoutRepeatingCharactersTest {
 
         int actual = obj.lengthOfLongestSubstring("");
         int actual1 = obj.lengthOfLongestSubstring1("");
+        int actual2 = obj.lengthOfLongestSubstring2("");
 
         Assertions.assertAll(
                 () -> assertEquals(expected, actual),
-                () -> assertEquals(expected, actual1)
+                () -> assertEquals(expected, actual1),
+                () -> assertEquals(expected, actual2)
         );
     }
 
@@ -55,10 +60,12 @@ class LongestSubstringWithoutRepeatingCharactersTest {
 
         int actual = obj.lengthOfLongestSubstring(null);
         int actual1 = obj.lengthOfLongestSubstring1(null);
+        int actual2 = obj.lengthOfLongestSubstring2(null);
 
         Assertions.assertAll(
                 () -> assertEquals(expected, actual),
-                () -> assertEquals(expected, actual1)
+                () -> assertEquals(expected, actual1),
+                () -> assertEquals(expected, actual2)
         );
     }
 }
