@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.ArrayDeque;
+
 public class PalindromeNumber {
 
     /*
@@ -33,6 +35,28 @@ public class PalindromeNumber {
         String s = Integer.toString(x);
         for (int i = 0; i < s.length() / 2; i++) {
             if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /*
+        6 ms, 42.3 MB
+     */
+    public boolean isPalindrome3(int x) {
+        if (x < 0 || (x > 0 && x % 10 == 0)) {
+            return false;
+        }
+        var deque = new ArrayDeque<Byte>();
+        while (x != 0) {
+            deque.add((byte) (x % 10));
+            x = x / 10;
+        }
+        while (!deque.isEmpty()) {
+            var first = deque.pollFirst();
+            var last = deque.pollLast();
+            if (last != null && !first.equals(last)) {
                 return false;
             }
         }
