@@ -16,10 +16,12 @@ class PalindromeNumberTest {
     void shouldReturnTrue() {
         boolean actual = obj.isPalindrome(palindrome);
         boolean actual1 = obj.isPalindrome1(palindrome);
+        boolean actual2 = obj.isPalindrome2(palindrome);
 
         assertAll(
                 () -> assertTrue(actual),
-                () -> assertTrue(actual1)
+                () -> assertTrue(actual1),
+                () -> assertTrue(actual2)
         );
     }
 
@@ -27,10 +29,12 @@ class PalindromeNumberTest {
     void shouldReturnFalse() {
         boolean actual = obj.isPalindrome(notPalindrome);
         boolean actual1 = obj.isPalindrome1(notPalindrome);
+        boolean actual2 = obj.isPalindrome2(notPalindrome);
 
         assertAll(
                 () -> assertFalse(actual),
-                () -> assertFalse(actual1)
+                () -> assertFalse(actual1),
+                () -> assertFalse(actual2)
         );
     }
 
@@ -38,10 +42,12 @@ class PalindromeNumberTest {
     void shouldReturnTrueOnZero() {
         boolean actual = obj.isPalindrome(0);
         boolean actual1 = obj.isPalindrome1(0);
+        boolean actual2 = obj.isPalindrome2(0);
 
         assertAll(
                 () -> assertTrue(actual),
-                () -> assertTrue(actual1)
+                () -> assertTrue(actual1),
+                () -> assertTrue(actual2)
         );
     }
 }
