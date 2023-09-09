@@ -18,12 +18,14 @@ class PalindromeNumberTest {
         boolean actual1 = obj.isPalindrome1(palindrome);
         boolean actual2 = obj.isPalindrome2(palindrome);
         boolean actual3 = obj.isPalindrome3(palindrome);
+        boolean actual4 = obj.isPalindrome4(palindrome);
 
         assertAll(
                 () -> assertTrue(actual),
                 () -> assertTrue(actual1),
                 () -> assertTrue(actual2),
-                () -> assertTrue(actual3)
+                () -> assertTrue(actual3),
+                () -> assertTrue(actual4)
         );
     }
 
@@ -33,12 +35,14 @@ class PalindromeNumberTest {
         boolean actual1 = obj.isPalindrome1(notPalindrome);
         boolean actual2 = obj.isPalindrome2(notPalindrome);
         boolean actual3 = obj.isPalindrome3(notPalindrome);
+        boolean actual4 = obj.isPalindrome4(notPalindrome);
 
         assertAll(
                 () -> assertFalse(actual),
                 () -> assertFalse(actual1),
                 () -> assertFalse(actual2),
-                () -> assertFalse(actual3)
+                () -> assertFalse(actual3),
+                () -> assertFalse(actual4)
         );
     }
 
@@ -48,12 +52,14 @@ class PalindromeNumberTest {
         boolean actual1 = obj.isPalindrome1(0);
         boolean actual2 = obj.isPalindrome2(0);
         boolean actual3 = obj.isPalindrome3(0);
+        boolean actual4 = obj.isPalindrome4(0);
 
         assertAll(
                 () -> assertTrue(actual),
                 () -> assertTrue(actual1),
                 () -> assertTrue(actual2),
-                () -> assertTrue(actual3)
+                () -> assertTrue(actual3),
+                () -> assertTrue(actual4)
         );
     }
 }

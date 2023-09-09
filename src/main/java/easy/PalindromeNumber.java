@@ -62,4 +62,25 @@ public class PalindromeNumber {
         }
         return true;
     }
+
+    /*
+        5 ms, 42.7 MB
+     */
+    public boolean isPalindrome4(int x) {
+        if (x < 0 || (x > 0 && x % 10 == 0)) {
+            return false;
+        }
+        int len = 0;
+        var arr = new int[10];
+        for (; x != 0; len++) {
+            arr[len] = x % 10;
+            x = x / 10;
+        }
+        for (int i = 0; i < len / 2; i++) {
+            if (arr[i] != arr[len - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
