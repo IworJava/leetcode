@@ -15,8 +15,9 @@ public class ValidParentheses {
 
         for (int i = 0; i < s.length(); i++) {
             var c = s.charAt(i);
-            if (opened.contains(c)) {
-                queue.addFirst(closed.get(opened.indexOf(c)));
+            int ind = opened.indexOf(c);
+            if (ind >= 0) {
+                queue.addFirst(closed.get(ind));
             } else if (closed.contains(c)) {
                 if (queue.isEmpty() || (char) queue.removeFirst() != c) {
                     return false;
