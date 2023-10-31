@@ -11,19 +11,19 @@ public class AddTwoNumbers {
         int sum = 0;
 
         while (l1 != null || l2 != null) {
-            if (current == null) {
-                current = new ListNode();
+            int val1 = l1 == null ? 0 : l1.val;
+            int val2 = l2 == null ? 0 : l2.val;
+            sum += val1 + val2;
+
+            if (result == null) {
+                result = new ListNode();
+                current = result;
             } else {
                 current.next = new ListNode();
                 current = current.next;
             }
-            sum += (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val);
             current.val = sum % 10;
             sum /= 10;
-
-            if (result == null) {
-                result = current;
-            }
             l1 = l1 == null ? null : l1.next;
             l2 = l2 == null ? null : l2.next;
         }
