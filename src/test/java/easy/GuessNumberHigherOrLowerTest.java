@@ -13,7 +13,11 @@ class GuessNumberHigherOrLowerTest {
         var obj = new GuessNumberHigherOrLower(expected);
 
         int actual = obj.guessNumber(n);
+        int actual1 = obj.guessNumber(n);
 
-        assertEquals(expected, actual);
+        assertAll(
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
+        );
     }
 }

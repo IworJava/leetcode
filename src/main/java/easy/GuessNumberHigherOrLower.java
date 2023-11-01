@@ -24,6 +24,22 @@ public class GuessNumberHigherOrLower {
         }
     }
 
+    /**
+     * 0 ms, 38.82 MB
+     */
+    public int guessNumber1(int n) {
+        return recursion(1, n);
+    }
+
+    private int recursion(int left, int right) {
+        int mid = left + (right - left) / 2;
+        switch (guess(mid)) {
+            case -1 -> { return recursion(left, mid - 1); }
+            case 1 -> { return recursion(mid + 1, right); }
+            default -> { return mid; }
+        }
+    }
+
     private int guess(int num) {
         return Integer.compare(guessed, num);
     }
