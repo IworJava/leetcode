@@ -18,8 +18,10 @@ class LinkedListCycleTest {
         l4.next = l2;
 
         boolean actual = obj.hasCycle(l1);
+        boolean actual1 = obj.hasCycle1(l1);
 
         assertTrue(actual);
+        assertTrue(actual1);
     }
 
     @Test
@@ -30,7 +32,9 @@ class LinkedListCycleTest {
         ListNode l1 = new ListNode(3, l2);
 
         boolean actual = obj.hasCycle(l1);
+        boolean actual1 = obj.hasCycle1(l1);
 
         assertFalse(actual);
+        assertFalse(actual1);
     }
 }

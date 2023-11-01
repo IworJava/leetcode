@@ -2,6 +2,9 @@ package easy;
 
 import common.ListNode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedListCycle {
 
     /**
@@ -21,5 +24,20 @@ public class LinkedListCycle {
             l2 = l2.next.next;
         }
         return true;
+    }
+
+    /**
+     * 4 ms, 43.42 MB
+     */
+    public boolean hasCycle1(ListNode head) {
+        Set<ListNode> set = new HashSet<>();
+        while (head != null) {
+            if (set.contains(head)) {
+                return true;
+            }
+            set.add(head);
+            head = head.next;
+        }
+        return false;
     }
 }
