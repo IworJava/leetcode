@@ -5,6 +5,45 @@ import java.util.Objects;
 public class MergeKSortedLists {
 
     /**
+     * 1 ms, 43.09 MB
+     */
+    public ListNode mergeKLists1(ListNode[] lists) {
+        if (lists == null || lists.length == 0) {
+            return null;
+        }
+        return splitAndMerge(lists, 0, lists.length - 1);
+    }
+
+    private ListNode splitAndMerge(ListNode[] lists, int start, int end) {
+        if (start == end) {
+            return lists[start];
+        }
+        if (start == end - 1) {
+            return merge(lists[start], lists[end]);
+        }
+        int mid = (start + end) / 2;
+        return merge(splitAndMerge(lists, start, mid), splitAndMerge(lists, mid + 1, end));
+    }
+
+    private ListNode merge(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode();
+        ListNode current = result;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                current.next = l1;
+                l1 = l1.next;
+            } else {
+                current.next = l2;
+                l2 = l2.next;
+            }
+            current = current.next;
+        }
+        current.next = l1 == null ? l2 : l1;
+        return result.next;
+    }
+
+    /**
      * 175 ms, 43.21 MB
      */
     public ListNode mergeKLists(ListNode[] lists) {
