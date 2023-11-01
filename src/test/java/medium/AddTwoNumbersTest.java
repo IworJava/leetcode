@@ -1,9 +1,9 @@
 package medium;
 
-import medium.AddTwoNumbers.ListNode;
+import common.ListNode;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AddTwoNumbersTest {
 

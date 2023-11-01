@@ -1,6 +1,6 @@
 package hard;
 
-import hard.MergeKSortedLists.ListNode;
+import common.ListNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -48,5 +48,4 @@ class MergeKSortedListsTest {
         Assertions.assertNull(actual);
         Assertions.assertNull(actual1);
     }
-
 }
