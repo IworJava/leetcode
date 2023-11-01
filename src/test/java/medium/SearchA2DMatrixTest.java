@@ -17,8 +17,12 @@ class SearchA2DMatrixTest {
     void shouldReturnTrueAsTargetExists() {
         int target = 11;
         boolean actual = obj.searchMatrix(matrix, target);
+        boolean actual1 = obj.searchMatrix1(matrix, target);
 
-        assertTrue(actual);
+        assertAll(
+                () -> assertTrue(actual),
+                () -> assertTrue(actual1)
+        );
     }
 
     @Test
@@ -28,10 +32,14 @@ class SearchA2DMatrixTest {
 
         boolean actual = obj.searchMatrix(matrix, target);
         boolean actual1 = obj.searchMatrix(matrix, target1);
+        boolean actual2 = obj.searchMatrix1(matrix, target);
+        boolean actual3 = obj.searchMatrix1(matrix, target1);
 
         assertAll(
                 () -> assertFalse(actual),
-                () -> assertFalse(actual1)
+                () -> assertFalse(actual1),
+                () -> assertFalse(actual2),
+                () -> assertFalse(actual3)
         );
     }
 }
