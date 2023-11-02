@@ -14,7 +14,11 @@ class SingleNumberTest {
         int expected = 4;
 
         int actual = obj.singleNumber(nums);
+        int actual1 = obj.singleNumber1(nums);
 
-        assertEquals(expected, actual);
+        assertAll(
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
+        );
     }
 }
