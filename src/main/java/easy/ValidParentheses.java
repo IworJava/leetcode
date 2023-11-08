@@ -2,11 +2,12 @@ package easy;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class ValidParentheses {
 
-    /*
-        2 ms, 40 MB
+    /**
+     * 2 ms, 39.99 MB
      */
     public boolean isValid(String s) {
         var opened = Arrays.asList('(', '[', '{');
@@ -25,5 +26,26 @@ public class ValidParentheses {
             }
         }
         return queue.isEmpty();
+    }
+
+    /**
+     * 1 ms, 40.11 MB
+     */
+    public boolean isValid1(String s) {
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char c : s.toCharArray()) {
+            switch (c) {
+                case '(' -> stack.addLast(')');
+                case '{' -> stack.addLast('}');
+                case '[' -> stack.addLast(']');
+                default -> {
+                    if (stack.isEmpty() || stack.removeLast() != c) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }

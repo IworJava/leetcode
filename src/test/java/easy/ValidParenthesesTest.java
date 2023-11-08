@@ -13,21 +13,33 @@ class ValidParenthesesTest {
     @Test
     void shouldReturnTrueWhenStringIsValid() {
         boolean actual = obj.isValid(validString);
+        boolean actual1 = obj.isValid1(validString);
 
-        assertTrue(actual);
+        assertAll(
+                () -> assertTrue(actual),
+                () -> assertTrue(actual1)
+        );
     }
 
     @Test
     void shouldReturnFalseWhenStringIsInvalid() {
         boolean actual = obj.isValid(invalidString);
+        boolean actual1 = obj.isValid1(invalidString);
 
-        assertFalse(actual);
+        assertAll(
+                () -> assertFalse(actual),
+                () -> assertFalse(actual1)
+        );
     }
 
     @Test
     void shouldReturnTrueWhenStringIsEmpty() {
         boolean actual = obj.isValid("");
+        boolean actual1 = obj.isValid1("");
 
-        assertTrue(actual);
+        assertAll(
+                () -> assertTrue(actual),
+                () -> assertTrue(actual1)
+        );
     }
 }
