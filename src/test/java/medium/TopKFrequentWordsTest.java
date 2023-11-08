@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TopKFrequentWordsTest {
@@ -17,7 +18,11 @@ class TopKFrequentWordsTest {
         List<String> expected = List.of("i", "love");
 
         List<String> actual = obj.topKFrequent(words, k);
+        List<String> actual1 = obj.topKFrequent1(words, k);
 
-        assertEquals(expected, actual);
+        assertAll(
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
+        );
     }
 }
