@@ -15,10 +15,12 @@ class ValidAnagramTest {
 
         boolean actual = obj.isAnagram(s, t);
         boolean actual1 = obj.isAnagram1(s, t);
+        boolean actual2 = obj.isAnagram2(s, t);
 
         assertAll(
                 () -> assertTrue(actual),
-                () -> assertTrue(actual1)
+                () -> assertTrue(actual1),
+                () -> assertTrue(actual2)
         );
 
     }
@@ -30,10 +32,12 @@ class ValidAnagramTest {
 
         boolean actual = obj.isAnagram(s, t);
         boolean actual1 = obj.isAnagram1(s, t);
+        boolean actual2 = obj.isAnagram2(s, t);
 
         assertAll(
                 () -> assertFalse(actual),
-                () -> assertFalse(actual1)
+                () -> assertFalse(actual1),
+                () -> assertFalse(actual2)
         );
     }
 }
