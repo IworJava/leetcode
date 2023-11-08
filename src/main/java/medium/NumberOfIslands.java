@@ -33,4 +33,32 @@ public class NumberOfIslands {
         bfs(grid, i, j - 1, visited);
         bfs(grid, i, j + 1, visited);
     }
+
+    /**
+     * 3 ms, 47.03 MB
+     */
+    public int numIslands1(char[][] grid) {
+        int result = 0;
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == '1') {
+                    bfs(grid, i, j);
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
+    private void bfs(char[][] grid, int i, int j) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == '0') {
+            return;
+        }
+        grid[i][j] = '0';
+        bfs(grid, i - 1, j);
+        bfs(grid, i + 1, j);
+        bfs(grid, i, j - 1);
+        bfs(grid, i, j + 1);
+    }
 }

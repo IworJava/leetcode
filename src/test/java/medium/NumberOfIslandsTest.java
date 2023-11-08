@@ -19,7 +19,11 @@ class NumberOfIslandsTest {
         int expected = 3;
 
         int actual = obj.numIslands(grid);
+        int actual1 = obj.numIslands1(grid);
 
-        assertEquals(expected, actual);
+        assertAll(
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
+        );
     }
 }
