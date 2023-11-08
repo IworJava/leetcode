@@ -71,4 +71,49 @@ public class FindAllAnagramsInString {
         }
         return result;
     }
+
+    /**
+     * 8 ms, 43.83 MB
+     */
+    public List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        int pl = p.length();
+
+        if (s.length() < pl) {
+            return result;
+        }
+
+        int[] pa = getArr(p);
+        char[] sa = s.toCharArray();
+        int[] check = getArr(s.substring(0, pl - 1));
+
+        for (int i = 0; i < sa.length - pl + 1; i++) {
+            check[sa[i + pl - 1] - 'a']++;
+            if (equals(pa, check)) {
+                result.add(i);
+            }
+            check[sa[i] - 'a']--;
+        }
+        return result;
+    }
+
+    private int[] getArr(String s) {
+        int[] arr = new int[26];
+        for (char c : s.toCharArray()) {
+            arr[c - 'a']++;
+        }
+        return arr;
+    }
+
+    private boolean equals(int[] arr1, int[] arr2) {
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

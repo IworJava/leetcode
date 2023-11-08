@@ -20,13 +20,16 @@ class FindAllAnagramsInStringTest {
 
         List<Integer> actual = obj.findAnagrams(str, target);
         List<Integer> actual1 = obj.findAnagrams1(str, target);
+        List<Integer> actual2 = obj.findAnagrams2(str, target);
 
         actual.sort(Comparator.naturalOrder());
         actual1.sort(Comparator.naturalOrder());
+        actual2.sort(Comparator.naturalOrder());
 
         assertAll(
                 () -> assertEquals(expected, actual),
-                () -> assertEquals(expected, actual1)
+                () -> assertEquals(expected, actual1),
+                () -> assertEquals(expected, actual2)
         );
     }
 
@@ -38,13 +41,16 @@ class FindAllAnagramsInStringTest {
 
         List<Integer> actual = obj.findAnagrams(str, target);
         List<Integer> actual1 = obj.findAnagrams1(str, target);
+        List<Integer> actual2 = obj.findAnagrams1(str, target);
 
         actual.sort(Comparator.naturalOrder());
         actual1.sort(Comparator.naturalOrder());
+        actual2.sort(Comparator.naturalOrder());
 
         assertAll(
                 () -> assertEquals(expected, actual),
-                () -> assertEquals(expected, actual1)
+                () -> assertEquals(expected, actual1),
+                () -> assertEquals(expected, actual2)
         );
     }
 }
