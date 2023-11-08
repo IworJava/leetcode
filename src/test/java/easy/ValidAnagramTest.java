@@ -14,8 +14,13 @@ class ValidAnagramTest {
         String t = "nagaram";
 
         boolean actual = obj.isAnagram(s, t);
+        boolean actual1 = obj.isAnagram1(s, t);
 
-        assertTrue(actual);
+        assertAll(
+                () -> assertTrue(actual),
+                () -> assertTrue(actual1)
+        );
+
     }
 
     @Test
@@ -24,7 +29,11 @@ class ValidAnagramTest {
         String t = "rat";
 
         boolean actual = obj.isAnagram(s, t);
+        boolean actual1 = obj.isAnagram1(s, t);
 
-        assertFalse(actual);
+        assertAll(
+                () -> assertFalse(actual),
+                () -> assertFalse(actual1)
+        );
     }
 }
