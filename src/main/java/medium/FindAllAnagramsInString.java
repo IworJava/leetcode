@@ -35,4 +35,40 @@ public class FindAllAnagramsInString {
         }
         return result;
     }
+
+    /**
+     * 68 ms, 44.65 MB
+     */
+    public List<Integer> findAnagrams1(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        int pl = p.length();
+        if (s.length() < pl) {
+            return result;
+        }
+
+        Map<Character, Integer> target = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (char c : p.toCharArray()) {
+            target.merge(c, 1, Integer::sum);
+        }
+
+        for (int i = 0; i < pl - 1; i++) {
+            map.merge(s.charAt(s.length() - i - 1), 1, Integer::sum);
+        }
+
+        for (int i = s.length() - pl; i >= 0; i--) {
+            map.merge(s.charAt(i), 1, Integer::sum);
+            if (map.equals(target)) {
+                result.add(i);
+            }
+            int count = map.get(s.charAt(i + pl - 1));
+            if (count == 1) {
+                map.remove(s.charAt(i + pl - 1));
+            } else {
+                map.put(s.charAt(i + pl - 1), count - 1);
+            }
+        }
+        return result;
+    }
 }
