@@ -19,11 +19,13 @@ class PartitionLabelsTest {
         List<Integer> actual = obj.partitionLabels(s);
         List<Integer> actual1 = obj.partitionLabels1(s);
         List<Integer> actual2 = obj.partitionLabels2(s);
+        List<Integer> actual3 = obj.partitionLabels3(s);
 
         assertAll(
                 () -> assertEquals(expected, actual),
                 () -> assertEquals(expected, actual1),
-                () -> assertEquals(expected, actual2)
+                () -> assertEquals(expected, actual2),
+                () -> assertEquals(expected, actual3)
         );
     }
 }

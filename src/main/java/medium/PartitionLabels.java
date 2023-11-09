@@ -79,4 +79,26 @@ public class PartitionLabels {
         }
         return result;
     }
+
+    /**
+     * 5 ms, 40.78 MB
+     */
+    public List<Integer> partitionLabels3(String s) {
+        List<Integer> result = new ArrayList<>();
+        int[] letters = new int[26];
+        int min = 0;
+        int max = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            letters[s.charAt(i) - 'a'] = i;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            max = Math.max(max, letters[s.charAt(i) - 'a']);
+            if (max == i) {
+                result.add(max - min + 1);
+                min = max + 1;
+            }
+        }
+        return result;
+    }
 }
