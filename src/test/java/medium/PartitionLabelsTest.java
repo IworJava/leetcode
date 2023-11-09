@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PartitionLabelsTest {
@@ -16,7 +17,11 @@ class PartitionLabelsTest {
         List<Integer> expected = List.of(9, 7, 8, 1);
 
         List<Integer> actual = obj.partitionLabels(s);
+        List<Integer> actual1 = obj.partitionLabels1(s);
 
-        assertEquals(expected, actual);
+        assertAll(
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
+        );
     }
 }
