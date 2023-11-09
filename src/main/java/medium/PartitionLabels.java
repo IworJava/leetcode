@@ -57,4 +57,26 @@ public class PartitionLabels {
         }
         return result;
     }
+
+    /**
+     * 8 ms, 41.66 MB
+     */
+    public List<Integer> partitionLabels2(String s) {
+        List<Integer> result = new ArrayList<>();
+        Map<Character, Integer> letters = new HashMap<>();
+        int min = 0;
+        int max = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            letters.put(s.charAt(i), i);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            max = Math.max(max, letters.get(s.charAt(i)));
+            if (max == i) {
+                result.add(max - min + 1);
+                min = max + 1;
+            }
+        }
+        return result;
+    }
 }
