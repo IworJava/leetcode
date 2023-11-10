@@ -16,7 +16,11 @@ class LongestRepeatingCharacterReplacementTest {
         int expected = 8;
 
         int actual = obj.characterReplacement(s, k);
+        int actual1 = obj.characterReplacement1(s, k);
 
-        assertEquals(expected, actual);
+        assertAll(
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1)
+        );
     }
 }
