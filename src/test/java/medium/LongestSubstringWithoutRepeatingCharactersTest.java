@@ -3,12 +3,8 @@ package medium;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LongestSubstringWithoutRepeatingCharactersTest {
@@ -18,24 +14,25 @@ class LongestSubstringWithoutRepeatingCharactersTest {
 
     @Test
     void shouldReturnLengthOfLongestSubstring() {
-        Map<String, Integer> map = new HashMap<>();
-        map.put("abcabcbb", 3);
-        map.put("aab", 2);
-        map.put("dvdf", 3);
-        map.put("tmmzuxt", 5);
-        var expected = map.values().toArray();
+        var map = Map.of(
+                "abcabcbb", 3,
+                "aab", 2,
+                "dvdf", 3,
+                "tmmzuxt", 5,
+                "abba", 2
+        );
+        var expected = map.values().stream().toList();
 
-        List<Integer> actual = new ArrayList<>();
-        List<Integer> actual1 = new ArrayList<>();
-        List<Integer> actual2 = new ArrayList<>();
-        map.forEach((k, v) -> actual.add(obj.lengthOfLongestSubstring(k)));
-        map.forEach((k, v) -> actual1.add(obj.lengthOfLongestSubstring1(k)));
-        map.forEach((k, v) -> actual2.add(obj.lengthOfLongestSubstring2(k)));
+        var actual = map.keySet().stream().map(obj::lengthOfLongestSubstring).toList();
+        var actual1 = map.keySet().stream().map(obj::lengthOfLongestSubstring1).toList();
+        var actual2 = map.keySet().stream().map(obj::lengthOfLongestSubstring2).toList();
+        var actual3 = map.keySet().stream().map(obj::lengthOfLongestSubstring3).toList();
 
         Assertions.assertAll(
-                () -> assertArrayEquals(expected, actual.toArray()),
-                () -> assertArrayEquals(expected, actual1.toArray()),
-                () -> assertArrayEquals(expected, actual2.toArray())
+                () -> assertEquals(expected, actual),
+                () -> assertEquals(expected, actual1),
+                () -> assertEquals(expected, actual2),
+                () -> assertEquals(expected, actual3)
         );
     }
 

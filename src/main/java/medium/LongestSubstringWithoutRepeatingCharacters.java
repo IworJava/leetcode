@@ -70,4 +70,25 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         return result;
     }
+
+    /**
+     * 3 ms, 44.51 MB
+     */
+    public int lengthOfLongestSubstring3(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int result = 0;
+        int l = 0;
+        int r = 0;
+
+        for (; r < s.length(); r++) {
+            Integer idx = map.put(s.charAt(r), r);
+
+            if (idx != null) {
+                result = Math.max(result, r - l);
+                l = Math.max(l, idx + 1);
+            }
+
+        }
+        return Math.max(result, r - l);
+    }
 }
