@@ -26,4 +26,29 @@ public class ValidPalindrome {
         }
         return true;
     }
+
+    /**
+     * 4 ms, 43.27 MB
+     */
+    public boolean isPalindrome1(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+
+        String str = sb.toString();
+        int l = 0;
+        int r = str.length() - 1;
+
+        while (l < r) {
+            if (str.charAt(l) != str.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
 }

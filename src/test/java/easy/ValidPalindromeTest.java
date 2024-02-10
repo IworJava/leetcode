@@ -10,21 +10,24 @@ class ValidPalindromeTest {
 
     @Test
     void should_return_true() {
-        String s = "A man, a plan, a canal: Panama";
-        String s1 = " ";
-        String s2 = "Ab_a";
-        String s3 = "race a car";
+        String s1 = "A man, a plan, a canal: Panama";
+        String s2 = " ";
+        String s3 = "Ab_a";
 
-        boolean actual = obj.isPalindrome(s);
-        boolean actual1 = obj.isPalindrome(s1);
-        boolean actual2 = obj.isPalindrome(s2);
-        boolean actual3 = obj.isPalindrome(s3);
+        boolean actual1_1 = obj.isPalindrome(s1);
+        boolean actual1_2 = obj.isPalindrome(s2);
+        boolean actual1_3 = obj.isPalindrome(s3);
+        boolean actual2_1 = obj.isPalindrome1(s1);
+        boolean actual2_2 = obj.isPalindrome1(s2);
+        boolean actual2_3 = obj.isPalindrome1(s3);
 
         assertAll(
-                () -> assertTrue(actual),
-                () -> assertTrue(actual1),
-                () -> assertTrue(actual2),
-                () -> assertFalse(actual3)
+                () -> assertTrue(actual1_1),
+                () -> assertTrue(actual1_2),
+                () -> assertTrue(actual1_3),
+                () -> assertTrue(actual2_1),
+                () -> assertTrue(actual2_2),
+                () -> assertTrue(actual2_3)
         );
     }
 
@@ -32,10 +35,12 @@ class ValidPalindromeTest {
     void should_return_false() {
         String s = "race a car";
 
-        boolean actual = obj.isPalindrome(s);
+        boolean actual1 = obj.isPalindrome(s);
+        boolean actual2 = obj.isPalindrome1(s);
 
         assertAll(
-                () -> assertFalse(actual)
+                () -> assertFalse(actual1),
+                () -> assertFalse(actual2)
         );
     }
 }
