@@ -16,12 +16,16 @@ class RansomNoteTest {
         boolean expected1 = false;
         boolean expected2 = true;
 
-        boolean actual1 = obj.canConstruct(ransomNote, magazine1);
-        boolean actual2 = obj.canConstruct(ransomNote, magazine2);
+        boolean actual1_1 = obj.canConstruct(ransomNote, magazine1);
+        boolean actual1_2 = obj.canConstruct(ransomNote, magazine2);
+        boolean actual2_1 = obj.canConstruct1(ransomNote, magazine1);
+        boolean actual2_2 = obj.canConstruct1(ransomNote, magazine2);
 
         assertAll(
-                () -> assertEquals(expected1, actual1),
-                () -> assertEquals(expected2, actual2)
+                () -> assertEquals(expected1, actual1_1),
+                () -> assertEquals(expected2, actual1_2),
+                () -> assertEquals(expected1, actual2_1),
+                () -> assertEquals(expected2, actual2_2)
         );
     }
 
@@ -30,14 +34,20 @@ class RansomNoteTest {
         String ransomNote = "aa";
         String magazine = "a";
 
-        boolean actual = obj.canConstruct(ransomNote, magazine);
-        boolean actual1 = obj.canConstruct(null, magazine);
-        boolean actual2 = obj.canConstruct(ransomNote, null);
+        boolean actual1_1 = obj.canConstruct(ransomNote, magazine);
+        boolean actual1_2 = obj.canConstruct(null, magazine);
+        boolean actual1_3 = obj.canConstruct(ransomNote, null);
+        boolean actual2_1 = obj.canConstruct1(ransomNote, magazine);
+        boolean actual2_2 = obj.canConstruct1(null, magazine);
+        boolean actual2_3 = obj.canConstruct1(ransomNote, null);
 
         assertAll(
-                () -> assertFalse(actual),
-                () -> assertFalse(actual1),
-                () -> assertFalse(actual2)
+                () -> assertFalse(actual1_1),
+                () -> assertFalse(actual1_2),
+                () -> assertFalse(actual1_3),
+                () -> assertFalse(actual2_1),
+                () -> assertFalse(actual2_2),
+                () -> assertFalse(actual2_3)
         );
     }
 }
